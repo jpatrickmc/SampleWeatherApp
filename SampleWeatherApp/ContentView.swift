@@ -11,17 +11,12 @@ struct ContentView: View {
     var body: some View {
         ZStack{
             
-            LinearGradient(gradient: Gradient(colors: [Color(.red), Color(.blue)]), startPoint: .leading, endPoint: .trailing)
-                .ignoresSafeArea()
-            
- 
+            LinearGradient(gradient: Gradient(colors: [Color(.blue), Color(.white)]), startPoint: .topLeading, endPoint: .bottomTrailing)
+            .ignoresSafeArea()
             
             Text("London")
                 .font(.system(size: 32, weight: .regular))
                 .foregroundColor(.white)
-             
-                .frame(width: 250, height: 100)
-                .background(Color(.red))
         }
     }
 }
