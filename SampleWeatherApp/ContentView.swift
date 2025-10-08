@@ -14,7 +14,7 @@ struct ContentView: View {
             LinearGradient(gradient: Gradient(colors: [Color(.blue), Color("lightBlue")]), startPoint: .topLeading, endPoint: .bottomTrailing)
             .ignoresSafeArea()
             
-            VStack (spacing: 100) {
+            VStack (spacing: 40) {
                 Text("London")
                     .font(.system(size: 32, weight: .regular))
                     .foregroundColor(.white)
@@ -40,6 +40,19 @@ struct ContentView: View {
                     DayWeatherContainer(dayName: "FRI", imageName: "sun.max.fill", degreesTemperature: 28)
                     DayWeatherContainer(dayName: "SAT", imageName: "sun.max.fill", degreesTemperature: 23)
                 }
+                
+                Spacer()
+                
+                Button(action: {
+                    print("Clicked")
+                }, label: {
+                    Text("Change Day")
+                        .frame(width: 200, height: 50)
+                        .foregroundColor(.white)
+                        .font(.system(size: 20, weight: .bold))
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                })
                 
                 Spacer()
             }
