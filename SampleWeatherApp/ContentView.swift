@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var isDayTime: Bool = true
+    
     var body: some View {
         ZStack{
             
-            LinearGradient(gradient: Gradient(colors: [Color(.blue), Color("lightBlue")]), startPoint: .topLeading, endPoint: .bottomTrailing)
-            .ignoresSafeArea()
+            LinearGradient(gradient: Gradient(colors: [isDayTime ? Color(.blue) : Color(.black), isDayTime ? Color("lightBlue") : Color(.gray)]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                .ignoresSafeArea()
             
             VStack (spacing: 40) {
                 Text("London")
@@ -20,7 +23,7 @@ struct ContentView: View {
                     .foregroundColor(.white)
                 
                 VStack (spacing: 4) {
-                    Image(systemName: "cloud.sun.fill")
+                    Image(systemName: isDayTime ? "cloud.sun.fill" : "moon.stars")
                         .renderingMode(.original)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -44,7 +47,7 @@ struct ContentView: View {
                 Spacer()
                 
                 Button(action: {
-                    print("Clicked")
+                    isDayTime = !isDayTime
                 }, label: {
                     Text("Change Day")
                         .frame(width: 200, height: 50)
